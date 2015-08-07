@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOCamp", "OOCamp\OOCamp.csproj", "{01C1F1C6-2E9E-4C7B-8635-904193808C69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOCamp_Test", "OOCamp_Test\OOCamp_Test.csproj", "{325178B1-70B8-41BC-9105-E51EA9A7DAFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01C1F1C6-2E9E-4C7B-8635-904193808C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C1F1C6-2E9E-4C7B-8635-904193808C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C1F1C6-2E9E-4C7B-8635-904193808C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C1F1C6-2E9E-4C7B-8635-904193808C69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{325178B1-70B8-41BC-9105-E51EA9A7DAFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325178B1-70B8-41BC-9105-E51EA9A7DAFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325178B1-70B8-41BC-9105-E51EA9A7DAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325178B1-70B8-41BC-9105-E51EA9A7DAFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

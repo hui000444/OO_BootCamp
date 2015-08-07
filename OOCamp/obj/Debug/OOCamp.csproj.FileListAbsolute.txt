@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\OOCamp\OOCamp\bin\Debug\OOCamp.dll
+C:\Users\Administrator\Desktop\OOCamp\OOCamp\bin\Debug\OOCamp.pdb
+C:\Users\Administrator\Desktop\OOCamp\OOCamp\obj\Debug\OOCamp.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\OOCamp\OOCamp\obj\Debug\OOCamp.dll
+C:\Users\Administrator\Desktop\OOCamp\OOCamp\obj\Debug\OOCamp.pdb

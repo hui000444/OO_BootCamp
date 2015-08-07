@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\bin\Debug\OOCamp_Test.dll
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\bin\Debug\OOCamp_Test.pdb
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\obj\Debug\OOCamp_Test.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\obj\Debug\OOCamp_Test.dll
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\obj\Debug\OOCamp_Test.pdb
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\bin\Debug\OOCamp.dll
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\bin\Debug\OOCamp.pdb
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\bin\Debug\xunit.dll
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\bin\Debug\xunit.extensions.dll
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\bin\Debug\xunit.xml
+C:\Users\Administrator\Desktop\OOCamp\OOCamp_Test\bin\Debug\xunit.extensions.xml
