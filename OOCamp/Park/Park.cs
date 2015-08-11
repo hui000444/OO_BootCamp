@@ -7,66 +7,46 @@ namespace OOCamp.Park
     {
         public Park(int parkPositionTotalNumber)
         {
-            ParkPositions = new List<ParkPosition>();
-            for (int i = 0; i < parkPositionTotalNumber; i++)
-            {
-                ParkPositions.Add(new ParkPosition(i + 1));
-            }
+            CarsInPark = new List<Car>();
+            ParkPositionTotalNumber = parkPositionTotalNumber;
         }
 
-        public List<ParkPosition> ParkPositions { get; private set; }
+        private int ParkPositionTotalNumber { get; set; }
+        public List<Car> CarsInPark { get; private set; }
 
         public int GetEmptyPositionCount()
         {
-            return ParkPositions.Count(d => d.Car == null);
-        }
-
-        public bool IsExistEmptyPosition()
-        {
-            return ParkPositions.Any(d => d.Car == null);
+            return ParkPositionTotalNumber - CarsInPark.Count;
         }
 
         public bool StopCar(Car car)
         {
-            var emptyPosition = ParkPositions.FirstOrDefault(d => d.Car == null);
-            if (emptyPosition != null)
-            {
-                emptyPosition.Car = car;
-                return true;
-            }
-            return false;
-        }
-
-        public bool IsExistCar(Car car)
-        {
-            return ParkPositions.Any(d => d.Car != null && d.Car.CarNumber == car.CarNumber);
+            if (CarsInPark.Count >= ParkPositionTotalNumber) return false;
+            CarsInPark.Add(car);
+            return true;
         }
 
         public Car PickUpCar(string carNo)
         {
-            var carPosition = ParkPositions.Where(p => p.Car != null).FirstOrDefault(d => d.Car.CarNumber == carNo);
-            if (carPosition == null) return null;
-            var resultCar = carPosition.Car;
-            carPosition.Car = null;
-            return resultCar;
+            var car = CarsInPark.FirstOrDefault(d => d.CarNumber == carNo);
+            if (car == null) return null;
+            CarsInPark.Remove(car);
+            return car;
         }
     }
 
-    public class ParkingBoy
+    public abstract class ParkingBoyBase
     {
-        private List<Park> ParkList { get; set; }
+        protected List<Park> ParkList { get; set; }
 
-        public ParkingBoy(params Park[] parks)
+        protected ParkingBoyBase(params Park[] parks)
         {
             ParkList = parks.ToList();
         }
-        public bool StopCar(Car car)
-        {
-            var park = ParkList.FirstOrDefault(p => p.StopCar(car));
-            return park != null;
-        }
 
-        public Car PickUpCar(string carNumber)
+        public abstract bool StopCar(Car car);
+
+        public virtual Car PickUpCar(string carNumber)
         {
             foreach (var park in ParkList)
             {
@@ -80,16 +60,29 @@ namespace OOCamp.Park
         }
     }
 
-    public class SmartParkingBoy
+    public class ParkingBoy : ParkingBoyBase
+    {
+        public ParkingBoy(params Park[] parks)
+            : base(parks)
+        {
+        }
+
+        public override bool StopCar(Car car)
+        {
+            var park = ParkList.FirstOrDefault(p => p.StopCar(car));
+            return park != null;
+        }
+    }
+
+    public class SmartParkingBoy : ParkingBoyBase
     {
 
-        private List<Park> ParkList { get; set; }
-
         public SmartParkingBoy(params Park[] parks)
+            : base(parks)
         {
-            ParkList = parks.ToList();
         }
-        public bool StopCar(Car car)
+
+        public override bool StopCar(Car car)
         {
             var park =
                 ParkList.Select(p => new { Park = p, Position = p.GetEmptyPositionCount() })
@@ -100,19 +93,6 @@ namespace OOCamp.Park
             return park.StopCar(car);
         }
 
-        public Car PickUpCar(string carNumber)
-        {
-            foreach (var park in ParkList)
-            {
-                var carResult = park.PickUpCar(carNumber);
-                if (carResult != null)
-                {
-                    return carResult;
-                }
-            }
-            return null;
-
-        }
     }
 
     public class ParkPosition
