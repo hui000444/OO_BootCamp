@@ -55,9 +55,11 @@
   <ItemGroup>
     <Compile Include="LengthTest.cs" />
     <Compile Include="ParkingBoyTest.cs" />
+    <Compile Include="ParkingManagerTest.cs" />
     <Compile Include="ParkTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmartParkingBoyTest.cs" />
+    <Compile Include="SuperParkingBoyTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OOCamp\OOCamp.csproj">
