@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace OOCamp.Park
 {
@@ -26,6 +27,34 @@ namespace OOCamp.Park
                 }
             }
             return null;
+        }
+
+        public int GetEmptyPosition()
+        {
+            return ParkList.Sum(p => p.GetEmptyPositionCount());
+        }
+
+        public int GetParkPositionTotalNumber()
+        {
+            return ParkList.Sum(p => p.ParkPositionTotalNumber);
+        }
+
+        public virtual string CalculateParkingReport()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(string.Format("{0}B {1} {2}", Utils.SpaceTwo, GetEmptyPosition(), GetParkPositionTotalNumber()));
+            ParkList.ForEach(
+               p =>
+               {
+                   builder.AppendLine(
+                       string.Format(
+                           "{0}P {1} {2}",
+                           Utils.SpaceFour,
+                           p.GetEmptyPositionCount(),
+                           p.ParkPositionTotalNumber));
+               }
+               );
+            return builder.ToString();
         }
 
         protected bool ChooseParkBy<T>(Car car, Func<Park, T> selector)

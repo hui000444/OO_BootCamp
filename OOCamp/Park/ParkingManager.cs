@@ -1,46 +1,60 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace OOCamp.Park
 {
     public class ParkingManager : ParkingBoyBase
     {
-        private readonly List<ParkingBoyBase> boys;
+        public readonly List<ParkingBoyBase> Boys;
 
-        public ParkingManager(params Park[] park)
-            : base(park)
+        public ParkingManager(List<Park> parks, List<ParkingBoyBase> boys)
         {
+            ParkList = new List<Park>();
+            if (parks != null)
+                ParkList.AddRange(parks);
 
+            this.Boys = new List<ParkingBoyBase>();
+            if (boys != null)
+                this.Boys.AddRange(boys);
         }
 
-        public ParkingManager(params ParkingBoyBase[] boys)
-        {
-            this.boys = new List<ParkingBoyBase>();
-            this.boys.AddRange(boys);
-        }
 
         public override bool StopCar(Car car)
         {
-            var park = ParkList.FirstOrDefault(p => p.StopCar(car));
-            return park != null;
+            if (ParkList != null && ParkList.Any(p => p.StopCar(car))) return true;
+
+            return Boys.Any(b => b.StopCar(car));
         }
 
-        public void AskBoyStopCar(Car car)
+        public override Car PickUpCar(string carNumber)
         {
-            foreach (var boy in boys)
-            {
-                if (boy.StopCar(car)) return;
-            }
-        }
+            var car = base.PickUpCar(carNumber);
+            if (car != null) return car;
 
-        public Car AskBoyPickCar(string carNumber)
-        {
-            foreach (var boy in boys)
+            foreach (var boy in Boys)
             {
-                var car = boy.PickUpCar(carNumber);
+                car = boy.PickUpCar(carNumber);
                 if (car != null) return car;
             }
             return null;
+        }
+
+        public override string CalculateParkingReport()
+        {
+            StringBuilder builder = new StringBuilder();
+            ParkList.ForEach(
+               p =>
+               {
+                   builder.AppendLine(
+                       string.Format(
+                           "{0}P {1} {2}",
+                           Utils.SpaceTwo,
+                           p.GetEmptyPositionCount(),
+                           p.ParkPositionTotalNumber));
+               }
+               );
+            return builder.ToString();
         }
     }
 }

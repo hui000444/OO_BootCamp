@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Length.cs" />
+    <Compile Include="Park\ParkingDirector.cs" />
     <Compile Include="Park\ParkingManager.cs" />
     <Compile Include="Park\Car.cs" />
     <Compile Include="Park\Park.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="Park\ParkPosition.cs" />
     <Compile Include="Park\SmartParkingBoy.cs" />
     <Compile Include="Park\SuperParkingBoy.cs" />
+    <Compile Include="Park\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

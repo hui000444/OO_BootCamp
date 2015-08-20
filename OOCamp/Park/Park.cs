@@ -11,8 +11,8 @@ namespace OOCamp.Park
             ParkPositionTotalNumber = parkPositionTotalNumber;
         }
 
-        private int ParkPositionTotalNumber { get; set; }
-        public List<Car> CarsInPark { get; private set; }
+        internal int ParkPositionTotalNumber { get; set; }
+        internal List<Car> CarsInPark { get; private set; }
 
         public int GetEmptyPositionCount()
         {
